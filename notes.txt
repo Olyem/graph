@@ -1,0 +1,48 @@
+Classes :
+arrete
+sommet (utilise le graphListe)
+grapheListe (utilise arretes)
+
+Récupérer fichiers read.cpp, random.cpp et nombres
+
+Parcours en profondeur dans le graphe
+Pour aller de i à j
+On parcourt tous les k et on voit si ça ne revient pas moins cher de passer par un k0 entre i et j
+
+A faire :
+revoir le constructeur de Matrice : donner en argument un std::vector<Arrete>
+voir comment vérifier que l'extension du fichier donné en argument du main est bien .graph
+
+Deuxième question :
+J'ai créé un doc fichier.txt avec des arrêtes 
+
+Contenu du main pour les tests sur la construction des graphs :
+// Construction de myGraph (de type GraphListe)
+    Arrete a ("s1","s2",12) ;
+    Arrete b ("s1","s3",13) ;
+    Arrete c ("s2","s3",23) ;
+    Arrete d ("s2","s4",24) ;
+    std::vector<Arrete> list_a {a,b} ;
+    std::vector<Arrete> list_b {c,d} ;
+    std::unordered_map<std::string,std::vector<Arrete>> dico_graph {{"s1", list_a}, {"s2", list_b}} ;
+    GraphListe myGraph(dico_graph) ;
+    // myGraph.print() ;
+
+    // Construction de mysecondGraph (de type Matrice)
+    std::vector<std::string> liste_sommets {"s1","s2"} ;
+    std::vector<int> list1 {12,13} ;
+    std::vector<int> list2 {23,24} ;
+    std::vector<std::vector<int>> tab {list1,list2} ;
+    Matrice mySecondGraph (tab, liste_sommets) ;
+    // mySecondGraph.print() ;
+
+    // essai ajout d'une arrête pour myGraph
+    Arrete e ("s1","s4",14) ;
+    Arrete f ("s4","s1",41) ;
+    // myGraph.add_arrete(e) ;
+    // myGraph.print() ;
+    // myGraph.add_arrete(f) ;
+    // myGraph.print() ;
+    
+    mySecondGraph.print() ; // affichage du graphe d'origine en format Matrice
+    mySecondGraph.toListe().print() ; // test Matrice::toListe()
